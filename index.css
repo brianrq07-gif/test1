@@ -1,0 +1,560 @@
+body {
+    background-color: #ffc3da;
+}
+
+.envelope-wrapper {
+    height: 380px;
+}
+
+#envelope {
+    position: relative;
+    height: 180px;
+    width: 280px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    background-color: #FF6863;
+}
+
+#envelope:hover {
+    cursor: pointer;
+}
+
+.front {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 3;
+}
+
+.flap {
+    border-top: 98px solid #FF6863;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 82px solid transparent;
+    transform-origin: top;
+}
+
+.pocket {
+    border-left: 140px solid #FF8BA0;
+    border-right: 140px solid #FF8BA0;
+    border-bottom: 90px solid #FFA8B5;
+    border-top: 90px solid transparent;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.letter {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    height: 95%;
+    top: 5%;
+    border-radius: 10px;
+    box-shadow: 0 2px 26px rgba(0, 0, 0, .12);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.letter:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.words {
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 14%;
+    font-family: 'Dancing Script', cursive;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+
+    -webkit-text-stroke: 0;
+    -moz-text-stroke: 0;
+    -ms-text-stroke: 0;
+    text-shadow: none;
+}
+
+.line1 { top: 15%; }
+.line2 { top: 30%; }
+.line3 { top: 50%; text-align: center; }
+.line4 { top: 65%; text-align: center; }
+
+.open .flap {
+    transform: rotatex(180deg);
+    transition: transform 0.4s ease, z-index 0.6s;
+    z-index: 1;
+}
+
+.close .flap {
+    transform: rotatex(0deg);
+    transition: transform 0.4s 0.6s ease, z-index 1s;
+    z-index: 5;
+}
+
+.open .letter {
+    transform: translatey(-80px);
+    transition: transform 0.4s 0.6s ease, z-index 0.6s;
+    z-index: 2;
+}
+
+.close .letter {
+    transform: translatey(0deg);
+    transition: transform 0.4s ease, z-index 1s;
+    z-index: 1;
+}
+
+.hearts {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+}
+
+.heart:before, .heart:after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(45deg, red, purple, pink);
+    width: 50px;
+    height: 80px;
+    left: 50px;
+    top: 0;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.close .heart {
+    opacity: 0;
+    animation: none;
+}
+
+.a1:before, .a1:after { background: linear-gradient(45deg, #8b0000, #ff0000, #ff4500); }
+.a2:before, .a2:after { background: linear-gradient(45deg, #dc143c, #ff6347, #e33f52); }
+.a3:before, .a3:after { background: linear-gradient(45deg, #b22222, #ff0000, #ffa500); }
+.a4:before, .a4:after { background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1); }
+.a5:before, .a5:after { background: linear-gradient(45deg, #8b008b, #da70d6, #dda0dd); }
+
+.a4 {
+    left: 30%;
+    transform: scale(0.7);
+    opacity: 1;
+    animation: slideUp 6s linear 1, sideSway 3s ease-in-out 5 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.a1 {
+    left: 20%;
+    transform: scale(0.6);
+    opacity: 1;
+    animation: slideUp 4s linear 1, sideSway 2s  ease-in-out 4 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.a2 {
+    left: 55%;
+    transform: scale(1);
+    opacity: 1;
+    animation: slideUp 5s linear 1, sideSwayVeryLeft 4s ease-in-out 2 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.a3 {
+    left: 10%;
+    transform: scale(0.8);
+    opacity: 1;
+    animation: slideUp 7s linear 1, sideSway 2s  ease-in-out 6 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.a5 {
+    left: 70%;
+    transform: scale(0.85);
+    opacity: 1;
+    animation: slideUp 8s linear 1, sideSway 1s ease-in-out 7 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.pig {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 60px;
+    height: 60px;
+    background: url('pig-removebg-preview.png') no-repeat center;
+    background-size: contain;
+}
+
+.close .pig {
+    opacity: 0;
+    animation: none;
+}
+
+.p1 { left: 20%; transform: scale(0.6); opacity: 1; animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate; animation-fill-mode: forwards; animation-delay: 0.7s; }
+.p2 { left: 55%; transform: scale(1); opacity: 1; animation: slideUp 5s linear 1, sideSwayLeft 4s ease-in-out 2 alternate; animation-fill-mode: forwards; animation-delay: 0.7s; }
+.p3 { left: 10%; transform: scale(0.8); opacity: 1; animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate; animation-fill-mode: forwards; animation-delay: 0.7s; }
+.p4 { left: 30%; transform: scale(0.7); opacity: 1; animation: slideUp 6s linear 1, sideSwayLeft 3s ease-in-out 5 alternate; animation-fill-mode: forwards; animation-delay: 0.7s; }
+.p5 { left: 70%; transform: scale(0.9); opacity: 1; animation: slideUp 8s linear 1, sideSway 1s ease-in-out 7 alternate; animation-fill-mode: forwards; animation-delay: 0.7s; }
+
+@keyframes slideUp { 0% { top: 0; } 100% { top: -600px; } }
+@keyframes sideSway { 0% { margin-left: 0px; } 100% { margin-left: 50px; } }
+@keyframes sideSwayLeft { 0% { margin-left: 0px; } 100% { margin-left: -50px; } }
+
+.valentine {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 70px;
+    margin: 150px;
+
+    /* Outline / stroke */
+    -webkit-text-stroke: 2px black;  /* For Chrome, Safari, Edge */
+    -moz-text-stroke: 2px black;     /* For Firefox */
+    text-stroke: 2px black;          /* Fallback */
+    text-shadow: 
+        2px 2px 0 pink, 
+       -2px 2px 0 pink, 
+        2px -2px 0 pink, 
+       -2px -2px 0 pink;           /* Extra shadow for browsers without stroke */
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    z-index: 10;
+    position: relative;
+}
+
+.buttons button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: font-size 0.2s ease;
+}
+
+#yesBtn { background-color: rgb(78, 244, 78); }
+#noBtn { background-color: rgb(247, 99, 99); }
+
+/* Fully opened envelope: only letter visible */
+.open-full .flap,
+.open-full .pocket,
+.open-full .heart,
+.open-full .pig {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.open-full .letter {
+    transform: translateY(0) scale(1.05);
+    z-index: 10;
+    transition: transform 0.5s ease;
+}
+
+.open-full .letter {
+    transform: translateY(-150px) scale(1.2);
+    width: 90%;
+    height: 300px;
+    z-index: 10;
+    transition: transform 0.6s ease, width 0.6s ease, height 0.6s ease;
+}
+
+/* Make buttons scale smoothly */
+.buttons button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease; /* changed from all to transform */
+}
+
+/* Show pigs and hearts when envelope opens */
+.open-full .heart,
+.open-full .pig {
+    opacity: 1; /* ensure they appear */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Button grows only when clicked */
+button.grow {
+    transform: scale(1.5); /* bigger */
+}
+
+/* Hide buttons */
+button.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Show pigs and hearts */
+.heart.show,
+.pig.show {
+    opacity: 1;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Letter slow grow */
+.open-full .letter {
+    transform: translateY(-50px) scale(1); /* start small */
+    transition: transform 3s ease, width 3s ease, height 3s ease;
+}
+
+.open-full .letter.grow {
+    transform: translateY(-150px) scale(1.5); /* grow slowly */
+}
+
+/* Show pigs and hearts */
+.open-full .heart,
+.open-full .pig {
+    opacity: 1;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.hide {
+    opacity: 0;               /* hide button */
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.grow {
+    transform: scale(1.5);    /* grow bigger */
+    transition: transform 0.5s ease;
+}
+
+/* Smooth size + hide animation */
+.buttons button {
+    transition: font-size 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hide helper */
+.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* biar tombol beneran keliatan mengecil */
+#noBtn {
+    transition: font-size 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+}
+
+/* biar YES bisa beneran ke tengah */
+.center-yes {
+    justify-content: center;
+}
+
+/* Hearts and pigs appear over the letter */
+.heart, .pig {
+    position: absolute;
+    z-index: 20; /* higher than letter */
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Float animation helper */
+@keyframes floatMove {
+    0% { transform: translate(0,0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) rotate(360deg); opacity: 0; }
+}
+
+/* Envelope letter slow grow */
+.open-full .letter {
+    transform: translateY(-50px) scale(1);
+    transition: transform 3s ease, width 3s ease, height 3s ease;
+}
+
+/* Button transitions */
+.buttons button {
+    transition: transform 0.3s ease, opacity 0.3s ease, font-size 0.3s ease;
+}
+
+/* Letter stays inside envelope */
+.open-full .letter {
+    transform: translateY(-50px) scale(1); /* initial inside envelope */
+    width: 90%;
+    height: 95%;
+    transition: transform 2s ease; /* slow grow */
+}
+
+/* Hearts and pigs floating upwards in different directions */
+.heart, .pig {
+    position: absolute;
+    opacity: 1;
+    z-index: 5; /* above letter */
+    pointer-events: none;
+}
+
+/* Animations for different directions */
+@keyframes floatHeart1 {
+    0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(-30px, -200px) rotate(20deg); opacity: 0; }
+}
+
+@keyframes floatHeart2 {
+    0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(20px, -180px) rotate(-15deg); opacity: 0; }
+}
+
+@keyframes floatPig1 {
+    0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(25px, -220px) rotate(10deg); opacity: 0; }
+}
+
+@keyframes floatPig2 {
+    0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(-20px, -190px) rotate(-10deg); opacity: 0; }
+}
+
+/* Apply animation when envelope opens */
+.heart.show:nth-child(1) { animation: floatHeart1 3s ease forwards; }
+.heart.show:nth-child(2) { animation: floatHeart2 3s ease forwards; }
+.pig.show:nth-child(1)   { animation: floatPig1 3s ease forwards; }
+.pig.show:nth-child(2)   { animation: floatPig2 3s ease forwards; }
+
+/* Adjust more pigs/hearts by adding nth-child selectors */
+/* Buttons smooth grow/shrink */
+.buttons button {
+    transition: font-size 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hide button */
+button.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Grow Yes button */
+button.grow {
+    transform: scale(1.5);
+    transition: transform 0.5s ease;
+}
+
+/* Center Yes button when No disappears */
+.center-yes {
+    justify-content: center;
+}
+
+/* Hearts float up in different directions and fade out */
+@keyframes floatHeart1 {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    50% { transform: translate(-30px, -100px) scale(1.1) rotate(-10deg); opacity: 0.8; }
+    100% { transform: translate(-60px, -300px) scale(1.2) rotate(-20deg); opacity: 0; }
+}
+
+@keyframes floatHeart2 {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    50% { transform: translate(30px, -100px) scale(1.1) rotate(10deg); opacity: 0.8; }
+    100% { transform: translate(60px, -300px) scale(1.2) rotate(20deg); opacity: 0; }
+}
+
+/* Pigs float up in different directions and fade out */
+@keyframes floatPig1 {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    50% { transform: translate(-40px, -100px) scale(1.1) rotate(-10deg); opacity: 0.8; }
+    100% { transform: translate(-80px, -300px) scale(1.2) rotate(-20deg); opacity: 0; }
+}
+
+@keyframes floatPig2 {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    50% { transform: translate(40px, -100px) scale(1.1) rotate(10deg); opacity: 0.8; }
+    100% { transform: translate(80px, -300px) scale(1.2) rotate(20deg); opacity: 0; }
+}
+
+/* Apply spread effect to hearts and pigs */
+.heart.show {
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.pig.show {
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+#rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* don’t block clicks */
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.rain-heart {
+    position: fixed;       /* fixed so top works */
+    top: -50px;            /* start above screen */
+    pointer-events: none;
+    font-size: 28px;
+    z-index: 9999;
+
+    animation-name: fall, spinSlow;
+    animation-timing-function: linear, linear;
+    animation-iteration-count: 1, infinite;
+}
+
+/* Straight falling down */
+@keyframes fall {
+    from { top: -50px; }
+    to { top: 100vh; }  /* drops to bottom of screen */
+}
+
+/* Slow spinning */
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.rain-heart {
+    animation-name: fall, spinSlow;
+    animation-timing-function: linear, linear;
+    animation-iteration-count: 1, infinite;
+}
+
+/* Letter pop when envelope opens */
+.open-full .letter {
+    transform: translateY(-10px); /* slightly up */
+    transition: transform 0.5s ease;
+}
+
+/* Optional: make it bounce a little for fun */
+.open-full .letter.pop {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
